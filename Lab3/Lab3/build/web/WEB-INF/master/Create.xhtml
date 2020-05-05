@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMasterTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMasterLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{masterController.selected.id}" title="#{bundle.CreateMasterTitle_id}" required="true" requiredMessage="#{bundle.CreateMasterRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateMasterLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{masterController.selected.name}" title="#{bundle.CreateMasterTitle_name}" required="true" requiredMessage="#{bundle.CreateMasterRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.CreateMasterLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{masterController.selected.address}" title="#{bundle.CreateMasterTitle_address}" required="true" requiredMessage="#{bundle.CreateMasterRequiredMessage_address}"/>
+                    <h:outputLabel value="#{bundle.CreateMasterLabel_petname}" for="petname" />
+                    <h:inputText id="petname" value="#{masterController.selected.petname}" title="#{bundle.CreateMasterTitle_petname}" required="true" requiredMessage="#{bundle.CreateMasterRequiredMessage_petname}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{masterController.create}" value="#{bundle.CreateMasterSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{masterController.prepareList}" value="#{bundle.CreateMasterShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMasterIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
